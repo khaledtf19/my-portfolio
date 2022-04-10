@@ -1,14 +1,17 @@
+import { FC } from "react";
 import { LayoutProps } from "./LayoutTypes";
 import Navbar from "../../components/navbarComponents/navbar/Navbar";
 
 import classes from "./Layout.module.css";
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <Navbar />
-      <div className={classes.layout}>{children}</div>
-    </>
+    <div className={classes.container}>
+      <header>
+        <Navbar />
+      </header>
+      <main className={classes.page}>{children}</main>
+    </div>
   );
 };
 
