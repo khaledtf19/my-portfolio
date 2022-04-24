@@ -2,7 +2,7 @@ import { FC } from "react";
 import { LayoutProps } from "./LayoutTypes";
 import Navbar from "../../components/navbarComponents/navbar/Navbar";
 
-import classes from "./Layout.module.css";
+import classes from "./Layout.module.scss";
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (

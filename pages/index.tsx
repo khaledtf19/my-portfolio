@@ -1,12 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import classes from "../styles/Home.module.css";
+import classes from "../styles/Home.module.scss";
 
 import { useAppSelector, useAppDispatch } from "../state/storeHooks";
 import { themeActions } from "../state";
-import About from "../containers/aboutSection/About";
-import MyWork from "../containers/myWorkSection/MyWork";
-import Contact from "../containers/contactSection/Contact";
 
 const Home: NextPage = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -30,10 +27,7 @@ const Home: NextPage = () => {
       <button onClick={() => dispatch(themeActions.toDark())}>
         theme dark
       </button> */}
-
-      <About />
-      <MyWork />
-      <Contact />
+      <h1>home</h1>
     </div>
   );
 };

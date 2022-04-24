@@ -1,0 +1,94 @@
+@use "../../../styles/mixins" as globalMixins;
+@use "../../../styles/variables" as globalVar;
+
+.container__dark {
+  background-color: globalVar.$color-bg-dark1;
+}
+.container__light {
+  background-color: fuchsia;
+}
+
+.container {
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 10px;
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+}
+
+.link svg {
+  max-width: 3rem;
+}
+
+.link__description {
+  visibility: hidden;
+  display: none;
+}
+
+@include globalMixins.desktop() {
+  .container {
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: globalVar.$size-page-margin;
+    transition: width globalVar.$nav-transition ease;
+  }
+
+  .list {
+    flex-direction: column;
+  }
+
+  .link {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+  }
+
+  .link__description {
+    margin-left: 1rem;
+    transition: visibility 100ms step-end;
+  }
+
+  .link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+
+  .container:hover {
+    width: 14rem;
+
+    .link__description {
+      display: block;
+      visibility: visible;
+      white-space: nowrap;
+      visibility: visible;
+    }
+    .link {
+      color: globalVar.$color-dark3;
+    }
+  }
+}
