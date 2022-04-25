@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAppSelector } from "../../../state/storeHooks";
-import { TODARK, TOLIGHT } from "../../../state/storeTypes";
 // import classes from "./NavBar.module.css";
 import classes from "./Navbar.module.scss";
 
@@ -24,11 +23,7 @@ function Navbar() {
   let iconsSize = "auto";
 
   return (
-    <nav
-      className={`${classes.container} ${
-        theme === TODARK ? classes.container__dark : classes.container__light
-      }`}
-    >
+    <nav data-theme={theme} className={`${classes.container}`}>
       <ul className={classes.list}>
         <li className={classes.item}>
           <Link href="/">

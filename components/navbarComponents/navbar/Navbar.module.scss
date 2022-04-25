@@ -1,18 +1,17 @@
 @use "../../../styles/mixins" as globalMixins;
 @use "../../../styles/variables" as globalVar;
 
-.container__dark {
-  background-color: globalVar.$color-bg-dark1;
-}
-.container__light {
-  background-color: fuchsia;
-}
-
 .container {
   position: fixed;
   overflow: hidden;
   bottom: 0;
   width: 100%;
+  &[data-theme="dark"] {
+    @include globalMixins.nav-theme("dark");
+  }
+  &[data-theme="light"] {
+    @include globalMixins.nav-theme("light");
+  }
 }
 
 .list {
@@ -32,7 +31,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   padding: 10px;
 }
 
@@ -86,9 +84,6 @@
       visibility: visible;
       white-space: nowrap;
       visibility: visible;
-    }
-    .link {
-      color: globalVar.$color-dark3;
     }
   }
 }

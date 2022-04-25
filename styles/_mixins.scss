@@ -1,5 +1,61 @@
+@use "variables" as globalVar;
+
 @mixin desktop() {
   @media (min-width: 500px) {
     @content;
   }
+}
+
+@mixin page-darkBackground() {
+  background-color: globalVar.$color-bg-dark3;
+}
+
+@mixin page-lightBackground() {
+  background-color: globalVar.$color-bg-light1;
+}
+
+@mixin page-theme($theme) {
+  @if ($theme == "dark") {
+    @include page-darkBackground();
+    color: #fff;
+  }
+  @if ($theme == "light") {
+    @include page-lightBackground();
+    color: #000;
+  }
+  @content;
+}
+
+@mixin nav-darkBackground() {
+  background-image: linear-gradient(
+    to right top,
+    #61456d,
+    #604a75,
+    #5d507e,
+    #5a5585,
+    #555b8d
+  );
+}
+
+@mixin nav-lightBackground() {
+  background-image: linear-gradient(
+    to right top,
+    #96b7cb,
+    #8ab0c3,
+    #7faabb,
+    #74a4b2,
+    #699da9
+  );
+}
+
+@mixin nav-theme($theme) {
+  @if ($theme == "dark") {
+    @include nav-darkBackground();
+    color: #fff;
+  }
+  @if ($theme == "light") {
+    @include nav-darkBackground();
+    color: #fff;
+  }
+  @content;
 }
